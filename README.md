@@ -1,34 +1,60 @@
-# Sign Language Recognition Application
+# Sign Language Detection System
 
-This application is a real-time sign language recognition system that uses computer vision and deep learning to interpret sign language gestures. It can recognize both alphabets and common phrases in sign language using your computer's webcam.
+## Overview
+This project implements a real-time sign language detection system using computer vision and deep learning. It can recognize both alphabets (A-Z) and common phrases in sign language through webcam input.
 
-## Features
-
+## Key Features
 - Real-time hand gesture recognition
-- Support for alphabet signs (A-Z)
-- Common phrase recognition
+- Supports both alphabet signs (A-Z) and common phrases
 - Live webcam feed with visual feedback
-- Gesture prediction with confidence scores
+- High accuracy in gesture prediction
 - User-friendly interface
+- Support for multiple gestures including:
+  - Alphabets (A to Z)
+  - Common phrases ("Hello", "Thank You", "I Love You", "Yes", "No")
 
-## Prerequisites
+## Technology Stack
+- Python 3.10+
+- TensorFlow/Keras for deep learning
+- OpenCV for image processing
+- MediaPipe for hand landmark detection
+- NumPy for numerical computations
+- Scikit-learn for machine learning utilities
 
-- Python 3.10 or higher
-- Webcam
-- Required Python packages (see requirements.txt)
+## Project Structure
+```
+sign_language_detector/
+├── Alphabet_Data/         # Training data for alphabets
+├── MP_Data/              # Training data for phrases
+├── static/              # Static files (CSS)
+├── templates/           # HTML templates
+├── app.py              # Main Flask application
+├── collect_images.py   # Script for collecting training images
+├── data.py            # Data processing utilities
+├── hand_tracking.py   # Hand tracking implementation
+├── modified.py        # Modified implementation
+├── motion_capture.py  # Motion capture functionality
+├── real_time_detect.py # Real-time detection script
+├── train_model.py     # Model training script
+├── training.py        # Training utilities
+└── requirements.txt   # Project dependencies
+```
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-git clone [your-repository-url]
-cd sign_language_app
+git clone https://github.com/dilip-ravichandra/sign_language_detector.git
+cd sign_language_detector
 ```
 
-2. Create a virtual environment (recommended):
+2. Create and activate virtual environment:
 ```bash
 python -m venv signlang_env
-source signlang_env/bin/activate  # On Windows: signlang_env\Scripts\activate
+# On Windows:
+signlang_env\Scripts\activate
+# On Unix or MacOS:
+source signlang_env/bin/activate
 ```
 
 3. Install required packages:
@@ -38,49 +64,59 @@ pip install -r requirements.txt
 
 ## Usage
 
-1. To run the main application:
+1. Run the main application:
 ```bash
 python modified.py
 ```
 
-2. To collect new training data:
+2. Collect new training data:
 ```bash
 python collect_images.py
 ```
 
-3. To train the model:
+3. Train the model:
 ```bash
 python training.py
 ```
 
-## Project Structure
+## Model Architecture
+- Uses a deep learning model trained on hand gesture data
+- Implements MediaPipe for accurate hand landmark detection
+- Uses TensorFlow/Keras for the neural network implementation
+- Includes pretrained models for both alphabets and phrases
 
-- `modified.py`: Main application file for real-time sign language recognition
-- `data.py`: Data processing and preparation utilities
-- `training.py`: Model training script
-- `collect_images.py`: Script for collecting new training data
-- `*.h5`: Trained model files
-- `*.pkl`: Label encoder and other serialized files
+## Training Data
+The project includes two main datasets:
+- Alphabet_Data: Contains training data for A-Z alphabets
+- MP_Data: Contains training data for common phrases
 
-## Model Information
-
-The application uses a deep learning model trained on hand gesture data. It utilizes:
-- MediaPipe for hand landmark detection
-- TensorFlow/Keras for the neural network model
-- OpenCV for image processing and webcam interface
-
-## Dataset
-
-The dataset includes:
-- Alphabet signs (A-Z)
-- Common phrases
-- Multiple samples per gesture
-- Various hand positions and lighting conditions
+## Performance
+- Real-time detection with minimal latency
+- High accuracy in controlled environments
+- Robust to different lighting conditions
+- Supports multiple hand orientations
 
 ## Contributing
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+## Future Improvements
+- Support for more complex phrases
+- Integration with text-to-speech
+- Mobile application development
+- Support for multiple simultaneous users
+- Improved accuracy in varying light conditions
 
 ## License
+This project is licensed under the MIT License - see the LICENSE file for details
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Contact
+- GitHub: [@dilip-ravichandra](https://github.com/dilip-ravichandra)
+
+## Acknowledgments
+- MediaPipe team for their hand tracking solution
+- TensorFlow and Keras documentation
+- OpenCV community for computer vision tools.
