@@ -1,0 +1,6 @@
+Flask
+opencv-python
+tensorflow
+mediapipe
+numpy
+pickle5
