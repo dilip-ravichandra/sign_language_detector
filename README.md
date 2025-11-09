@@ -71,7 +71,7 @@ python modified.py
 
 2. Collect new training data:
 ```bash
-python collect_images.py
+python data.py
 ```
 
 3. Train the model:
